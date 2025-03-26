@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'apt install nginx mysql-server php php-fpm php-mbstring php-xml php-bcmath php-curl zip unzip -y'
+                    sh 'sudo apt install nginx mysql-server php php-fpm php-mbstring php-xml php-bcmath php-curl zip unzip -y'
 
                     sh 'sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer'
 
