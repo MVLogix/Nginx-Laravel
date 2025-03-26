@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
 			
-		    sh 'rm -rf /var/lib/jenkins/workspace/laravelnginxpipeline/phplaravelapp/*'
+		    sh 'sudo rm -rf /var/lib/jenkins/workspace/laravelnginxpipeline/phplaravelapp/*'
 	
 		    // create laravel app 
 		    sh 'sudo composer create-project --prefer-dist laravel/laravel phplaravelapp'
