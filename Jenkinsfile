@@ -15,11 +15,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'sudo apt-get install nginx -y'
-
-		    sh 'sudo apt-get install php8.1-fpm -y'
-
-		    sh 'sudo dpkg --configure -a --force-confold'
+		
+		    sh 'sudo apt install nginx php php-cli php-common php-imap php-redis php-snmp php-xml php-zip php-mbstring php-curl libapache2-mod-php php-intl -y'
 
                     sh 'sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer'
 
