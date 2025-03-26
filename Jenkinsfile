@@ -15,6 +15,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+
+		    sh 'export DEBIAN_FRONTEND=noninteractive'
 		
 		    sh 'sudo apt install nginx php php-cli php-common php-imap php-redis php-snmp php-xml php-zip php-mbstring php-curl libapache2-mod-php php-intl -y'
 
@@ -23,6 +25,9 @@ pipeline {
                     sh 'sudo systemctl start nginx.service'
 
                     sh 'sudo systemctl enable nginx.service'
+
+		    sh 'sudo dpkg --configure -a --force-confnew'
+
                 }
             }
         }
