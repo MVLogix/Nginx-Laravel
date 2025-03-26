@@ -12,9 +12,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'sudo apt install nginx'
+                    sh 'sudo apt install nginx -y'
 
-		    sh 'sudo apt install php8.1-fpm'
+		    sh 'sudo apt install php8.1-fpm -y'
 
                     sh 'sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer'
 
