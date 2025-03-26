@@ -41,9 +41,10 @@ pipeline {
                     sh 'sudo chown -R www-data.www-data /var/www/phplaravelapp/storage'
 		    sh 'sudo chown -R www-data.www-data /var/www/phplaravelapp/bootstrap/cache'
 					
+		    sh 'cd /etc/nginx/sites-enabled'
+		    sh 'sudo rm /etc/nginx/sites-enabled/phplaravelapp'
 		    sh 'cd /etc/nginx/sites-available'
-		    sh 'sudo rm -f /etc/nginx/sites-enabled/phplaravelapp'
-		    sh 'sudo ln -s /etc/nginx/sites-available/phplaravelapp /etc/nginx/sites-enabled/'
+		    sh 'sudo ln -s /etc/nginx/sites-available/phplaravelapp  /etc/nginx/sites-enabled/'
 		    sh 'sudo nginx -t'
        		    sh 'sudo systemctl restart nginx.service'
                 }
