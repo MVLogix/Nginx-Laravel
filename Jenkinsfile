@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+        DEBIAN_FRONTEND = 'noninteractive' // Disable interactive prompts
+    }
     
     stages {
         stage('Git clone') {
@@ -12,9 +15,11 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'sudo apt install nginx -y'
+                    sh 'sudo apt-get install nginx -y'
 
-		    sh 'sudo apt install php8.1-fpm -y'
+		    sh 'sudo apt-get install php8.1-fpm -y'
+
+		    sh 'sudo dpkg --configure -a --force-confold'
 
                     sh 'sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer'
 
